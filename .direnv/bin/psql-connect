@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+while getopts d: flag
+do
+    case "$flag" in
+        d) database=${OPTARG};;
+    esac
+done
+
+if [ -z "$database" ]; then
+    database=$DB_DEFAULT_DATABASE;
+fi
+
+exec docker exec -it $DB_CONTAINER_NAME psql -U root -d $database
