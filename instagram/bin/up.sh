@@ -9,12 +9,12 @@ echo "done"
 
 # create schema
 echo "creating schemas..."
-psql-execute -d $project_name -f ./sql/${$project_name}/init.sql >/dev/null
+psql-execute -d $project_name -f ./${$project_name}/init.sql >/dev/null
 echo "done"
 
 # load restore file
 echo "loading data..."
-docker cp ./sql/${$project_name}/data/ig.sql $DB_CONTAINER_NAME:tmp/ig.sql
+docker cp ./${$project_name}/data/ig.sql $DB_CONTAINER_NAME:tmp/ig.sql
 docker exec -it $DB_CONTAINER_NAME pg_restore -d $project_name --data-only --single-transaction --disable-triggers --no-owner ./tmp/ig.sql
 echo "done"
 
