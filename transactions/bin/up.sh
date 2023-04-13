@@ -9,7 +9,7 @@ echo "done"
 
 # create schema
 echo "creating schemas..."
-psql-execute -d $project_name -f ./sql/${project_name}/init.sql >/dev/null
+psql-execute -d $project_name -f ./${project_name}/init.sql >/dev/null
 echo "done"
 
 exit 0
