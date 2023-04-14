@@ -8,8 +8,8 @@ docker exec -it udemy-course-pg-15 createdb $project_name
 echo "done"
 
 # create schema
-echo "creating schemas..."
-psql-execute -d $project_name -f ./${project_name}/init.sql >/dev/null
+echo "migrating schemas..."
+psql-migrate -d $project_name up
 echo "done"
 
 exit 0
