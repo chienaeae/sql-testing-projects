@@ -53,5 +53,17 @@ psql-connect -d <database_name>
 
 **Execute sql file**
 ```bash
-psql-execute -d <database_name> -d <file_location>
+psql-execute -d <database_name> -f <file_location>
+```
+
+**Migrate database**
+```bash
+# apply all the migrations
+psql-migrate -d <database_name> up
+
+# apply to the specific migrations
+psql-migrate -d <database_name> goto <version>
+
+# revert all the migrations
+psql-migrate -d <database_name> down
 ```
