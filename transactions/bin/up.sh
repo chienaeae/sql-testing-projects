@@ -3,8 +3,8 @@ project_name='transactions'
 
 # create database
 echo "creating database..."
-docker exec -it udemy-course-pg-15 dropdb $project_name
-docker exec -it udemy-course-pg-15 createdb $project_name
+docker exec -it $DB_CONTAINER_NAME dropdb $project_name
+docker exec -it $DB_CONTAINER_NAME createdb $project_name
 echo "done"
 
 # create schema
